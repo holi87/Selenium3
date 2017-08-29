@@ -16,6 +16,6 @@ def test_login_admin_page(driver):
     driver.find_element_by_xpath("//input[@name='username']").send_keys("admin")  # just for sth other than name
     driver.find_element_by_name("password").send_keys("admin")
     driver.find_element_by_name("login").click()
-    WebDriverWait(driver, 10).until(ec.title_is("My Store1"))
+    WebDriverWait(driver, 10).until(ec.title_is("My Store"))
 
 __author__ = "Grzegorz Holak"
