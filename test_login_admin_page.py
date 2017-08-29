@@ -17,5 +17,9 @@ def test_login_admin_page(driver):
     driver.find_element_by_name("password").send_keys("admin")
     driver.find_element_by_name("login").click()
     WebDriverWait(driver, 10).until(ec.title_is("My Store"))
+    driver.find_element_by_link_text("Countries").click()
+    WebDriverWait(driver, 10).until(ec.title_contains("Countries"))
+
+
 
 __author__ = "Grzegorz Holak"
