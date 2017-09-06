@@ -12,17 +12,14 @@ def driver(request):
     return wd
 
 
-
 def test_login_admin_page(driver):
-
     login_to_admin_page(driver)
-    wait(driver).until(ec.title_is("My Store"))
     driver.find_element_by_link_text("Countries").click()
     wait(driver).until(ec.title_contains("Countries"))
 
+
 def test_all_admin_pages(driver):
     login_to_admin_page(driver)
-    wait(driver).until(ec.title_is("My Store"))
     for j in range(len((driver.find_elements_by_id("app-")))):
         tmp_l = driver.find_elements_by_id("app-")
         tmp_l[j].click()
@@ -36,7 +33,6 @@ def test_all_admin_pages(driver):
 
 def test_all_admin_pages_only_h1(driver):
     login_to_admin_page(driver)
-    wait(driver).until(ec.title_is("My Store"))
     for j in range(len((driver.find_elements_by_id("app-")))):
         tmp_l = driver.find_elements_by_id("app-")
         tmp_l[j].click()
@@ -46,12 +42,12 @@ def test_all_admin_pages_only_h1(driver):
             ec.presence_of_element_located((By.XPATH, "//h1"))
 
 
-
 def login_to_admin_page(driver):
     driver.get("http://localhost:8080/litecart/admin/")
     driver.find_element_by_xpath("//input[@name='username']").send_keys("admin")
     driver.find_element_by_name("password").send_keys("admin")
     driver.find_element_by_name("login").click()
+    wait(driver).until(ec.title_is("My Store"))
 
 
 def wait(driver):
