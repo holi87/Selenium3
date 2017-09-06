@@ -58,16 +58,5 @@ def wait(driver):
     wait = WebDriverWait(driver, 10)
     return wait
 
-"""
-lista = []
-lista = driver.find_elements_by_css_selector("li#app-")
-print(lista)
-
-li#app-.selected - css selector dla wybranego elementu glownej listy
-li#app-.selected li[id^=doc-].selected - css selector dla wybranego elementu wewnątrz aktualnie otwartej podlisty
-li#app-.selected li[id^=doc-].selected span - tu jest ukryty tytul linka, ma sie zgadzac z h1
-
-
-"""
 
 __author__ = "Grzegorz Holak"
