@@ -23,12 +23,10 @@ def test_login_admin_page(driver):
 def test_all_admin_pages(driver):
     login_to_admin_page(driver)
     wait(driver).until(ec.title_is("My Store"))
-    lista = driver.find_elements_by_id("app-")
-    for j in range(len(lista)):
+    for j in range(len((driver.find_elements_by_id("app-")))):
         tmp_l = driver.find_elements_by_id("app-")
         tmp_l[j].click()
-        lista_temp = driver.find_elements_by_css_selector("li#app-.selected li[id^=doc-]")
-        for i in range(len(lista_temp)):
+        for i in range(len(driver.find_elements_by_css_selector("li#app-.selected li[id^=doc-]"))):
             tmp = driver.find_elements_by_css_selector("li#app-.selected li[id^=doc-]")
             tmp[i].click()
             h1 = driver.find_element_by_xpath("//h1").text
@@ -39,12 +37,10 @@ def test_all_admin_pages(driver):
 def test_all_admin_pages_only_h1(driver):
     login_to_admin_page(driver)
     wait(driver).until(ec.title_is("My Store"))
-    lista = driver.find_elements_by_id("app-")
-    for j in range(len(lista)):
+    for j in range(len((driver.find_elements_by_id("app-")))):
         tmp_l = driver.find_elements_by_id("app-")
         tmp_l[j].click()
-        lista_temp = driver.find_elements_by_css_selector("li#app-.selected li[id^=doc-]")
-        for i in range(len(lista_temp)):
+        for i in range(len(driver.find_elements_by_css_selector("li#app-.selected li[id^=doc-]"))):
             tmp = driver.find_elements_by_css_selector("li#app-.selected li[id^=doc-]")
             tmp[i].click()
             ec.presence_of_element_located((By.XPATH, "//h1"))
