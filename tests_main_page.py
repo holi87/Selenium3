@@ -12,10 +12,6 @@ def driver(request):
     return wd
 
 
-def wait(driver):
-    waiter = WebDriverWait(driver, 10)
-    return waiter
-
 
 def test_number_of_stickers(driver):
     open_main_page(driver)
@@ -34,6 +30,11 @@ check if every product has exactly one sticker
 def open_main_page(driver):
     driver.get("http://localhost:8080/litecart")
     wait(driver).until(ec.title_is("Online Store | My Store"))
+
+
+def wait(driver):
+    waiter = WebDriverWait(driver, 10)
+    return waiter
 
 
 __author__ = "Grzegorz Holak"
