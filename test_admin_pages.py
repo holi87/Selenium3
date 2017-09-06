@@ -55,8 +55,9 @@ def login_to_admin_page(driver):
 
 
 def wait(driver):
-    wait = WebDriverWait(driver, 10)
-    return wait
+    waiter = WebDriverWait(driver, 10)
+    return waiter
+
 
 
 __author__ = "Grzegorz Holak"
