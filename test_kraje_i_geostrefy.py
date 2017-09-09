@@ -16,6 +16,10 @@ def test_countries(driver):
     login_to_admin_page(driver)
     driver.get("http://localhost:8080/litecart/admin/?app=countries&doc=countries")
     wait(driver).until(ec.title_contains("Countries | My Store"))
+    lista_krajow = []
+    for row in driver.find_elements_by_class_name("row"):
+        lista_krajow.append(row.find_element_by_xpath(".//a").text)
+    assert lista_krajow == sorted(lista_krajow)
 
 
 def test_geozones(driver):
