@@ -23,7 +23,7 @@ def test_item_in_campaigns(driver):
 
     main_page_checklist = [product_name.text, product_r_pr.text, product_c_pr.text]
 
-    # this part is prepared for Firefox, which not working with rgba, but on Chrome is exception in chromedriver
+    # this part is prepared for Firefox, which is not working with rgba, but on Chrome is exception in chromedriver
     # that makes impossible to click product and go to product page. Could make workaround by go to url, but want to
     # leave it as human would do.
     assert product_r_pr.value_of_css_property("color") == "rgb(119, 119, 119)", "regular price color is not gray #777"
