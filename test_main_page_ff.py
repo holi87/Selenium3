@@ -6,17 +6,15 @@ from selenium.webdriver.support import expected_conditions as ec
 
 @pytest.fixture
 def driver(request):
-    wd = webdriver.Chrome()
+    wd = webdriver.Firefox()
     request.addfinalizer(wd.quit)
     return wd
 
 
-def test_number_of_stickers(driver):
+def test_item_in_campaigns(driver):
     open_main_page(driver)
-    lista_produktow = driver.find_elements_by_css_selector("li[class='product column shadow hover-light']")
-    for element in lista_produktow:
-        tmp = element.find_elements_by_css_selector("div[class^='sticker']")
-        assert len(tmp) == 1
+    product_list = driver.find_elements_by_css_selector("div#box-campaigns li")
+    product_list[0].click()
 
 
 def open_main_page(driver):
@@ -27,6 +25,5 @@ def open_main_page(driver):
 def wait(driver):
     waiter = WebDriverWait(driver, 10)
     return waiter
-
 
 __author__ = "Grzegorz Holak"
