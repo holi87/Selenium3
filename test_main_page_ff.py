@@ -44,7 +44,6 @@ def test_item_in_campaigns(driver):
     for i in range(len(main_page_checklist)):
         assert main_page_checklist[i] == product_page_checklist[i], "It's not same product!"
 
-
     # rgb(102,102,102) is still gray, but different than on main page, but it's really untestable to make what is grey
     # and what is not exactly, cause it's impossible to make it in range of gray scale.
 
@@ -54,6 +53,7 @@ def test_item_in_campaigns(driver):
     # as webdriver gives it as int not as string value like "bold", checked in css what is "normal" then everything
     # with higher value is marked as bold
     assert int(pp_camp_pr.value_of_css_property("font-weight")) > 400, "campaign price is not bolded!"
+
 
 def open_main_page(driver):
     driver.get("http://localhost:8080/litecart")
