@@ -61,8 +61,6 @@ def test_geozones(driver):
         driver.execute_script("history.go(-1);")
 
 
-
-
 def login_to_admin_page(driver):
     driver.get("http://localhost:8080/litecart/admin/")
     driver.find_element_by_xpath("//input[@name='username']").send_keys("admin")
